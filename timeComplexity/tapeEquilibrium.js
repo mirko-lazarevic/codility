@@ -49,38 +49,24 @@
  */
 
 function solution(A) {
-    console.log('Started: ');
-    var start = Date.now();
-    var min = Math.min(), i = 0, n = A.length;
-    var duration = 0;
+    var min = 10000000000;
+    var sumRight = 0;
+    var sumLeft = 0;
 
-    while (i < n - 1) {
-        var chunk1 = A.slice(0, i + 1);
-        var chunk2 = A.slice(i + 1, n);
-
-
-        var v1 = chunk1.reduce(function (a, b) {
-            return a + b;
-        }, 0);
-
-        var v2 = chunk2.reduce(function (a, b) {
-            return a + b;
-        }, 0);
-
-        var temp = Math.abs(v1 - v2);
-
+    for (var i = 1; i < A.length; i++) {
+        sumRight += A[i];
+    }
+    for (var j = 1; j < A.length; j++) {
+        sumLeft += A[j - 1];
+        var temp = Math.abs(sumLeft - sumRight);
         if (temp < min) {
             min = temp;
         }
-        i++;
+        sumRight -= A[j];
     }
 
-    duration = Date.now() - start;
-    console.log('Duration: ', duration);
-
     return min;
-
 }
 
-var a = Array.apply(null, {length: 10000}).map(Number.call, Number);
-console.log('Result: ' + solution(a));
+// var a = Array.apply(null, {length: 100000}).map(Number.call, Number);
+module.exports = solution;
