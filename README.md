@@ -1,3 +1,3 @@
 # codility
 
-My soulution for codility lesson written in JavaScript
+My Solutions for programming questions from *Codility* (https://codility.com)
