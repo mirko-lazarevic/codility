@@ -10,7 +10,7 @@ function solution(X, A) {
     }
     var i = 0;
     var B = new Array(X);
-    
+
 
     var count = 0;
     for (; i < n; i++) {
@@ -28,6 +28,6 @@ function solution(X, A) {
     }
 
     return -1;
-
-
 }
+
+module.exports = solution;
